@@ -90,11 +90,11 @@ function validateForm(index: number) {
 	formRefs.value[index].validate((errors) => {
 		if (!errors) {
 			console.log("success");
+			submitForm(formModel[index]);
 		} else {
 			console.log(errors);
 		}
 	});
-	submitForm(formModel[index]);
 }
 
 //===============================-< get form data from accounts >-===============================
@@ -175,7 +175,7 @@ onMounted(() => {
 							v-model:value="form.type"
 							placeholder="Выберите тип записи"
 							:options="typeOptions"
-							@change="validateForm(index)"
+							@update:value="validateForm(index)"
 						/>
 					</n-form-item>
 
@@ -218,7 +218,6 @@ onMounted(() => {
 				</n-form>
 			</div>
 		</div>
-		<pre>{{ JSON.stringify(formModel, null, 2) }}</pre>
 	</section>
 </template>
 <style>
