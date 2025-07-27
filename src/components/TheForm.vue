@@ -64,17 +64,17 @@ const rules = {
 	type: {
 		required: true,
 		trigger: ["blur"],
-		message: "Please choose account type",
+		message: "Пожалуйста, выберите тип учетной записи",
 	},
 	login: {
 		required: true,
 		trigger: ["blur", "input"],
-		message: "Please input login",
+		message: "Пожалуйста, введите логин",
 	},
 	password: {
 		required: true,
 		trigger: ["blur", "input"],
-		message: "Please input password",
+		message: "Пожалуйста, введите пароль",
 	},
 };
 //> functions
@@ -188,6 +188,7 @@ onMounted(() => {
 						<n-input
 							v-model:value="form.login"
 							:maxlength="100"
+							placeholder="Введите логин"
 							clearable
 							@blur="validateForm(index)"
 						/>
@@ -204,7 +205,7 @@ onMounted(() => {
 							v-model:value="form.password"
 							type="password"
 							show-password-on="click"
-							placeholder="Input Name"
+							placeholder="Введите пароль"
 							:maxlength="100"
 							:disabled="form.type === 'ldap'"
 							@blur="validateForm(index)"
@@ -212,7 +213,7 @@ onMounted(() => {
 					</n-form-item>
 					<n-form-item>
 						<n-button @click="removeRow(index, form.id)" type="error" ghost>
-							Remove
+							Удалить
 						</n-button>
 					</n-form-item>
 				</n-form>
